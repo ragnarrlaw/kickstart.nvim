@@ -652,6 +652,11 @@ require('lazy').setup({
           filetypes = { 'rust' },
           single_file_support = true,
         },
+        protols = {
+          cmd = { 'protols' },
+          filetypes = { 'proto' },
+          single_file_support = true,
+        },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -939,6 +944,27 @@ require('lazy').setup({
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
+    end,
+  },
+  {
+    'nvim-tree/nvim-tree.lua',
+    version = '*',
+    lazy = false,
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('nvim-tree').setup {
+        sort = {
+          sorter = 'case_sensitive',
+        },
+        view = {
+          width = 30,
+        },
+        renderer = {
+          group_empty = true,
+        },
+      }
     end,
   },
   { -- Highlight, edit, and navigate code
